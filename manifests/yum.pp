@@ -11,12 +11,13 @@
 #
 # Pete Cheslock <pete.cheslock@threatstack.com>
 # Tom McLaughlin <tom.mclaughlin@threatstack.com>
+# Nate St. Germain <nate.stgermain@threatstack.com>
 #
 # === Copyright
 #
-# Copyright 2016 Threat Stack, Inc.
+# Copyright 2020 Threat Stack, Inc.
 #
-class threatstack::yum {
+class threatstack::yum inherits ::threatstack::params {
   Exec {
     path => ['/bin', '/usr/bin']
   }
@@ -38,7 +39,7 @@ class threatstack::yum {
 
   yumrepo { 'threatstack':
     descr    => 'Threat Stack Package Repository',
-    enabled  => 1,
+    enabled  => $::threatstack::repo_enabled,
     baseurl  => $::threatstack::repo_url,
     gpgcheck => 1,
     gpgkey   => $::threatstack::gpg_key_file_uri,

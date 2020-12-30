@@ -5,21 +5,22 @@
 # === Authors
 #
 # Tom McLaughlin <tom.mclaughlin@threatstack.com>
+# Nate St. Germain <nate.stgermain@threatstack.com>
 #
 # === Copyright
 #
-# Copyright 2016 Threat Stack, Inc.
+# Copyright 2020 Threat Stack, Inc.
 #
 class threatstack::service {
 
-  # NOTE: We do not signal the cloudsight service to restart via the package
+  # NOTE: We do not signal the tsagent service to restart via the package
   # resource because the workflow differs between fresh installation and
   # upgrades.  The package scripts will handle this.
   service { $::threatstack::ts_service:
     ensure     => running,
     enable     => true,
-    hasrestart => true
+    hasrestart => true,
+    provider   => $::threatstack::service_provider
   }
 
 }
-

@@ -6,9 +6,10 @@ exclude_paths = [
   'pkg/**/*',
   'vendor/**/*',
   'spec/**/*',
+  'pkg/**/*',
 ]
 
-PuppetLint.configuration.log_format = '%{path}:%{linenumber}:%{check}:%{KIND}:%{message}'
+# PuppetLint.configuration.log_format = '%{path}:%{linenumber}:%{check}:%{KIND}:%{message}'
 PuppetLint.configuration.ignore_paths = exclude_paths
 PuppetLint.configuration.send('disable_80chars')
 PuppetLint.configuration.send('disable_autoloader_layout')
@@ -22,6 +23,6 @@ desc 'Run syntax, lint, and spec tests.'
 task :test => [
   :syntax,
   :lint,
-  :metadata,
+  :metadata_lint,
   :spec,
 ]

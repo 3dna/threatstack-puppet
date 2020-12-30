@@ -9,7 +9,7 @@
 #
 # === Copyright
 #
-# Copyright 2016 Threat Stack, Inc.
+# Copyright 2020 Threat Stack, Inc.
 #
 include ::stdlib
 
@@ -23,7 +23,6 @@ if $::operatingsystem == 'Debian' {
 # See .kitchen.yml for setting this fact.
 class { '::threatstack':
   deploy_key        => $::ts_deploy_key,
-  feature_plan      => $::ts_feature_plan,
   agent_config_args => $::ts_config_args,
   package_version   => $::ts_package_version,
 }

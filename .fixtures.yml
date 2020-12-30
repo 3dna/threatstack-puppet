@@ -3,3 +3,12 @@ fixtures:
     threatstack: "#{source_dir}"
   forge_modules:
     stdlib: "puppetlabs/stdlib"
+    apt: "puppetlabs/apt"
+    translate: "puppetlabs/translate"
+    auditd: "simp/auditd"
+    simplib: "simp/simplib"
+    augeas_core: "herculesteam/augeasproviders_core"
+    augeaslibs: "herculesteam/augeasproviders_grub"
+    archive: "puppet/archive"
+    remote_file: "lwf/remote_file"
+    concat: "puppetlabs/concat"
